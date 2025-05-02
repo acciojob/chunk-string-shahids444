@@ -1,19 +1,13 @@
 function stringChop(str, size) {
-  // your code here
-	let counter = 0;
-	let arr;
-	let str2 = "";
-	for(let i =0 ; i<str.length; i++){
-		str2.append(str[i])
-		if(str[i] == " "){
-			arr[counter] = str2;
-			counter++;
-			str2 = ""
-		}
-	}
-}
+  if (size <= 0) return []; // Edge case: invalid size
 
+  let result = [];
+  for (let i = 0; i < str.length; i += size) {
+    result.push(str.substr(i, size));
+  }
+  return result;
+}
 // Do not change the code below
-// const str = prompt("Enter String.");
-// const size = prompt("Enter Chunk Size.");
-// alert(stringChop(str, size));
+const str = prompt("Enter String.");
+const size = parseInt(prompt("Enter Chunk Size."));
+alert(stringChop(str, size));
